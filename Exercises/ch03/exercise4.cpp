@@ -6,9 +6,7 @@ void print_twice(char phil) {
 }
 
 int main() {
-    double x = 6;
-    print_twice('tryme');
-    print_twice(3);
-    print_twice(x);
+    print_twice()
+    
     return 0;
 }
