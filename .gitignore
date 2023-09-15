@@ -1,3 +1,5 @@
 a.out
 .DS_Store
 a.exe
+.dSYM
+output
