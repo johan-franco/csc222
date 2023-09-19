@@ -7,7 +7,7 @@ void count_letters(string p, char d){
     int index = 0;
     int limit = 0; /*Starts at zero to make sure that if d is in the first letter it is not skipped*/
     while (index >= 0) {
-       index = p.find(d, index+ counter);
+       index = p.find(d, index+ limit);
        limit = 1;
        count = count + 1;
        cout << index << endl << count << endl;
