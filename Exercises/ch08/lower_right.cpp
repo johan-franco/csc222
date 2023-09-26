@@ -13,7 +13,6 @@ struct Rectangle {
 Point lower_right(Rectangle p){
     p.corner.x = p.corner.x + p.width;
     p.corner.y = p.corner.y - p.height;
-    cout << p.corner;
     return p.corner;
 }
 
@@ -21,6 +20,6 @@ int main() {
     Point my_rect_right_down_corner;
     Rectangle my_rect = {{0.0, 0.0}, 100.0, 200.0};
     my_rect_right_down_corner = lower_right(my_rect);
-    cout << my_rect_right_down_corner;
+    cout << "Lower right corner: (" << my_rect_right_down_corner.x << ", " << my_rect_right_down_corner.y << ")";
     return 0;
 }
