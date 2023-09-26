@@ -50,4 +50,5 @@ void drink_calc() {
 
 int main(){
     drink_calc();
+    return 0;
 }
