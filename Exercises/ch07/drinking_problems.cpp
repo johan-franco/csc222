@@ -43,8 +43,8 @@ void drink_calc() {
         }
         cout << endl;
     }
-    cout << "Drunk : " << thirst_meter;
-    cout << "It took Bob " << count << "to satisfy his thirst";
+    cout << "Drunk : " << thirst_meter<< endl;
+    cout << "It took Bob " << count << " drinks to satisfy his thirst";
     
 }
 
