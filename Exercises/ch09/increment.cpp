@@ -5,10 +5,9 @@ struct Time {
     int hour, minute;
     double second;
 };
-/*Before without const the program could run without errors. Adding const resulted in errors as we are modifying time despite
-declaring it as a constant */
 
-void increment( const Time& time, const  double secs)
+
+void increment(  Time& time,  double secs)
 {
     time.second += secs;
 
@@ -23,8 +22,7 @@ void increment( const Time& time, const  double secs)
 }
 
 int main() {
-    double secs = 40.0;
     Time time = {11, 59, 3.14159};
-    increment(time, secs) ;
+    increment(time, );
     return 0;
 }
