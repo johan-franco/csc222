@@ -49,6 +49,7 @@ void drink_calc() {
 }
 
 int main(){
-    drink_calc();
+    drink_calc(Mylist, num);
+    
     return 0;
 }
