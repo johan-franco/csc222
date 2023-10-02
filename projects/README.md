@@ -9,10 +9,10 @@ Bob has a drinking problem … not that kind of a problem. Bob drinks Gatorade, 
 
 Bob’s wife prepares the glasses for him to drink from when he gets home from his tennis tournament. She puts Gatorade in each of the glasses, and lines them up. Each glass has a whole number of ounces. If there is more than one with the same amount, he chooses the one that is nearest to him. (Glass 1 is nearest.) He continues to drink until he has satisfied his thirst. He might drink more than his thirst level, but will not take another drink after he has had enough. There will always be enough Gatorade to satisfy his thirst. The problem is to find how many times he takes a drink of Gatorade to satisfy his thirst.
 
-1. Prompt for and accept as input:
-    a. The number of glasses on the table
-    b. The number of ounces of Gatorade in each glass
-    c. Bob’s thirst level i.e., the minimum number of ounces required to satisfy his thirst
+1. Prompt for and accept as input:<br>
+    a. The number of glasses on the table <br>
+    b. The number of ounces of Gatorade in each glass<br>
+    c. Bob’s thirst level i.e., the minimum number of ounces required to satisfy his thirst <br>
 2. You do not need to edit this input. Only valid positive integer values will be entered.
 3. Read the numbers from the standard input device.
 4. For each drink, display the number of ounces in that drink and the glass. Also display the remaining ounces in each glass. 
