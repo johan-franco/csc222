@@ -3,6 +3,8 @@
 #include <list>
 using namespace std;
 
+//Problem Link: https://www.seminolestate.edu/computers/competition/samples/2016
+
 void drink_calc() {
     int drinks_amount,x, thirst_max, largest_drink_index = 0, thirst_meter = 0, count = 0;
     double drunk_amount;
@@ -49,7 +51,7 @@ void drink_calc() {
 }
 
 int main(){
-    drink_calc(Mylist, num);
+    drink_calc();
     
     return 0;
 }
