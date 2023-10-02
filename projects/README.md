@@ -25,37 +25,32 @@ When Bob has satisfied his thirst, display the total amount he drank and the tot
 <table>
 <tr><th>Input</th><th>Output</th></tr>
 <tr>
-  <td>How many glasses are there?: 3
-How many oz in glass 1: 8
-How many oz in glass 2: 13
-How many oz in glass 3: 22
+  <td>How many glasses are there?: 3 <br>
+How many oz in glass 1: 8 <br>
+How many oz in glass 2: 13 <br>
+How many oz in glass 3: 22 <br>
 How thirsty is Bob?: 24</td>
-  <td>Drink 1: 6 oz from glass 3 8 13 16
-Drink 2: 4 oz from glass 3 8 13 12
-Drink 3: 4 oz from glass 2 8 9 12
-Drink 4: 3 oz from glass 3 8 9 9
-Drink 5: 3 oz from glass 2 8 6 9
-Drink 6: 3 oz from glass 3 8 6 6
-Drink 7: 2 oz from glass 1 6 6 6
+  <td>Drink 1: 6 oz from glass 3 8 13 16 <br>
+Drink 2: 4 oz from glass 3 8 13 12 <br>
+Drink 3: 4 oz from glass 2 8 9 12 <br>
+Drink 4: 3 oz from glass 3 8 9 9 <br>
+Drink 5: 3 oz from glass 2 8 6 9 <br>
+Drink 6: 3 oz from glass 3 8 6 6 <br>
+Drink 7: 2 oz from glass 1 6 6 6 <br>
 
-Drank: 25 oz 
+Drank: 25 oz <br>
 It took Bob 7 drinks to satisfy his thirst</td>
 </tr>
 <tr>
-  <td>27</td>
-  <td>Deficient Factors are: 1 3 9<br>
-  Sum is: 13</td>
-</tr>
-<tr>
-  <td>How many glasses are there?: 2 
-How many oz in glass 1: 17
-How many oz in glass 2: 19
+  <td>How many glasses are there?: 2 <br>
+How many oz in glass 1: 17 <br>
+How many oz in glass 2: 19 <br>
 How thirsty is Bob?: 15</td>
-  <td>Drink 1: 5 oz from glass 2 17 14
-Drink 2: 5 oz from glass 1 12 14
-Drink 3: 4 oz from glass 2 12 10
-Drink 4: 3 oz from glass 1 9 10
+  <td>Drink 1: 5 oz from glass 2 17 14 <br>
+Drink 2: 5 oz from glass 1 12 14 <br>
+Drink 3: 4 oz from glass 2 12 10 <br>
+Drink 4: 3 oz from glass 1 9 10 <br>
 
-Drank: 17 oz
+Drank: 17 oz <br>
 It took Bob 4 drinks to satisfy his thirst</td>
 </tr>
