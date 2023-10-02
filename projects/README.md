@@ -1,4 +1,4 @@
-#Drinking Problem
+## Drinking Problem
 
 This problem is taken from
 [Sample Questions from the 2016 Contest](https://www.seminolestate.edu/computers/competition/samples/2016).
