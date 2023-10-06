@@ -26,7 +26,6 @@ void shuffle(int my_array[], int arrSize){
 }
 
 void pureshuffle(int my_array[], int arrSize){
-    srand(time(0));
     for (int i=0; i < arrSize; i++) {
         swap(my_array[i], my_array[(rand()%arrSize)]);
     }
@@ -46,14 +45,10 @@ int main(){
     cout<< "Calling pure shuffle:" <<endl;
     pureshuffle(arr, arrSize); 
 
-    cout<< "Printing array after pureshuflle:"<< endl;
-    printarray(arr, arrSize);
 
-    cout<< "Calling regular shuffle:"<< endl;
+    cout<< "Calling modifier shuffle:"<< endl;
     shuffle(arr,arrSize);
 
-    cout<< "Printing array after shuffle:";
-    printarray(arr, arrSize);
 
 
     
