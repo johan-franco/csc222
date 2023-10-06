@@ -1,19 +1,20 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include <cstdlib>
-#include <typeinfo>
 
 using namespace std;
 
-void str_len(string str ) {
-    cout << typeid(my_array).name() << endl;
-    for(int i = 0; i <arrSize; i++){
-            cout<< my_array[i] << ' ';
-        }
-    cout << endl;
+
+int str_len(char str[]) {
+    int count = 0;
+    while (str[count] != '\0') count++;
+    return count;
 }
 
-int main(){
+int main() {
+    char string[] = "C-String \0";
 
+    cout << " Characters of length is: " << str_len(string);
+
+    return 0;
 }
