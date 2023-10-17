@@ -1,71 +1,61 @@
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
 #include <string>
-#include <list>
-#include <iterator>
-#include <vector>
 #include <sstream>
-
 using namespace std;
 
-template <size_t N>
-void splitString(string (&arr)[N], string str)
-{
-    int n = 0;
-    istringstream iss(str);
-    for (auto it = istream_iterator<string>(iss); it != istream_iterator<string>() && n < N; ++it, ++n)
-        arr[n] = *it;
+void expandArray(string*** arr, int* rows, int* columns, int newRows, int newColumns) {
+    string** newArr = new string*[newRows];
+    for (int i = 0; i < newRows; i++) {
+        newArr[i] = new string[newColumns];
+    }
+
+    // Copy values from the old array to the new array
+    for (int i = 0; i < *rows; i++) {
+        for (int j = 0; j < *columns; j++) {
+            newArr[i][j] = (*arr)[i][j];
+        }
+    }
+
+    // Deallocate memory for the old array
+    for (int i = 0; i < *rows; i++) {
+        delete[] (*arr)[i];
+    }
+    delete[] *arr;
+
+    // Update the pointer to point to the new array
+    *arr = newArr;
+
+    *rows = newRows;
+    *columns = newColumns;
 }
 
 
+int main() {
+    string** tree = nullptr;
+    int rows = 0, columns = 0;
+    string input;
 
-void tree() {
-    string kitten_branch, start, brancha, input, branch_num;
-    int branch = 0, branches = 0;
-    while(input != "-1" ) {
+    while (input != "-1") {
         getline(cin, input);
-        string tree[branch][branches]; 
         stringstream in(input);
-        while(getline(in, branch_num, ' ')) {
-            string temptree[branch][branches];
-            tree[branch][branches] = branch_num;
-            branches+=1;
-            for (int i = 0; i < branch; i++) {
-                for (int j = 0; j < branches; j++) {
-                temptree[i][j] = tree[i][j];
-                }
-            }
-        }
-        branch+=1;
-        for (int i = 0; i < branch; i++) {
-            for (int j = 0; j < branches; j++) {
-                tree[i][j] = temptree[i][j];
-            }
-        }
-
-
         
-        /*int i = 0;
-        int space = 0;
-        while(i <= input[i] ){
-            if( input[i] ==' '){
-                space++;
+        string branch_num;
+        int i = 0;
+        while (getline(in, branch_num, ' ')) {
+            if (columns <= i) {
+                expandArray(&tree, &rows, &columns, rows, i + 1);
+                columns = i + 1;
             }
-        i++;
+            tree[rows][i] = branch_num;
+            i++;
         }
-        string arr[i];
-        splitString(arr, input);
-        branches.push_back(arr);
-        cout << input;
-        */
-    } 
+        rows++;
+    }
 
-}
+    for (int i = 0; i < rows; i++) {
+        delete[] tree[i];
+    }
+    delete[] tree;
 
-int main(){
-    
-    tree();
-    
     return 0;
 }
