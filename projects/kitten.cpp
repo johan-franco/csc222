@@ -29,16 +29,18 @@ void expandArray(string*** arr, int* rows, int* columns, int newRows, int newCol
     *columns = newColumns;
 }
 
-
 int main() {
-    string** tree = nullptr;
+    string** tree = new string*[100]; 
+    for (int i = 0; i < 100; i++) {
+        tree[i] = new string[100]; 
+    }
     int rows = 0, columns = 0;
     string input;
 
     while (input != "-1") {
         getline(cin, input);
         stringstream in(input);
-        
+
         string branch_num;
         int i = 0;
         while (getline(in, branch_num, ' ')) {
@@ -52,6 +54,7 @@ int main() {
         rows++;
     }
 
+    // Deallocate memory for the tree array when done
     for (int i = 0; i < rows; i++) {
         delete[] tree[i];
     }
