@@ -30,24 +30,18 @@ int main() {
     
     insert_val(tree, rows, columns);
 
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; j++) {
-            cout << tree[i][j] << endl;
-        }
-    }
-    cout << rows << endl << columns;
-
     string root = tree[0][0];
     vector<string> path;
     
-    path[0] = root;
+    path.push_back(root);
     int st = 0;
 
-    for (int i = 1; i < columns; i++) {
-        for (int k = 1; k < rows; k++) {
+    for (int i = 1; i < rows; i++) {
+        for (int k = 1; k < columns; k++) {
             if(tree[i][k] == path[st]){
                 st ++;
-                path[st] = tree[i][0];
+                path.push_back(tree[i][0]);
+                cout<< tree[i][0] << endl;
                 i = 0;
                 k = 0;
             }
