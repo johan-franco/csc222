@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector> 
 using namespace std;
 
 void insert_val(string arr[][100], int& rows, int& columns) {
@@ -34,6 +35,28 @@ int main() {
             cout << tree[i][j] << endl;
         }
     }
+    cout << rows << endl << columns;
+
+    string root = tree[0][0];
+    vector<string> path;
+    
+    path[0] = root;
+    int st = 0;
+
+    for (int i = 1; i < columns; i++) {
+        for (int k = 1; k < rows; k++) {
+            if(tree[i][k] == path[st]){
+                st ++;
+                path[st] = tree[i][0];
+                i = 0;
+                k = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < 7; i++) {
+        cout<< path[i] <<" "; 
+  }
 
     return 0;
 }
