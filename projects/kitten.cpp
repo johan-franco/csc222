@@ -26,12 +26,6 @@ void tree() {
     while(input != "-1" ) {
         getline(cin, input);
         string tree[branch][branches]; 
-        for (int i = 0; i < branch; i++) {
-            for (int j = 0; j < branches; j++) {
-                tree[i][j] = temptree[i][j];
-            }
-        }
-        
         stringstream in(input);
         while(getline(in, branch_num, ' ')) {
             string temptree[branch][branches];
@@ -44,6 +38,12 @@ void tree() {
             }
         }
         branch+=1;
+        for (int i = 0; i < branch; i++) {
+            for (int j = 0; j < branches; j++) {
+                tree[i][j] = temptree[i][j];
+            }
+        }
+
 
         
         /*int i = 0;
