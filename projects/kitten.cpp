@@ -8,6 +8,7 @@ void insert_val(string arr[][100], int& rows, int& columns) {
     string input;
     int max_columns = 0;
     while (input != "-1") {
+        /*Gets one whole line*/
         getline(cin, input);
         stringstream in(input);
 
