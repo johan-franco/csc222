@@ -23,7 +23,7 @@ Output the path to the ground, starting with the branch on which the kitten sits
 <table>
 <tr><th>Input</th><th>Output</th></tr>
 <tr>
-  <td> <br>
+  <td>
 14 <br>
 25 24 <br>
 4 3 1 2 <br>
