@@ -5,6 +5,9 @@ struct Time {
     int hour, minute;
     double second;
 
+    Time(int h, int m, double s);
+    Time(int h, int m, int s);
+
 
     void increment(double secs);
     double convert_to_seconds();
@@ -38,11 +41,13 @@ void Time::make_time(double secs)
 Time::Time(int h, int m, double s)
 {
   hour = h; minute = m; second = s;
+  cout << "Declared with two ints and one double";
 }
 
 Time::Time(int h, int m, int s)
 {
   hour = h; minute = m; second = s;
+  cout << "Declared with all ints";
 }
 
 
@@ -54,8 +59,8 @@ void Time::print()
 
 
 int main(){
-
-//Without added construstor this returns a error of no matching constructor, with the added constructor runs normally
+//Without added constructor this runs with the constructor that takes in two ints and a double, 
+//with it it runs using the int counstructor
     Time current_time(9, 14, 3);
 
 
