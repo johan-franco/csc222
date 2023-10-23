@@ -10,4 +10,7 @@ struct Fraction {
     void print();
     double convert_denom(double mod);
     void plus(double add);
+    void minus(double sub);
+    void times(double mult);
+    void divided_by(double div);
 };
