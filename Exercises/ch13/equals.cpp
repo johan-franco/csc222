@@ -17,6 +17,14 @@ Card::Card(int s, int r) {
     suit = s; rank = r;
 }
 
+string Card::to_string() const
+{
+    vector<string> suit_strings = {"Clubs", "Diamonds", "Hearts", "Spades"};
+    vector<string> rank_strings = {"", "", "2", "3", "4", "5", "6", "7",
+                                   "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+
+    return rank_strings[rank] + " of " + suit_strings[suit];
+}
 
 bool equals(const Card& c1, const Card& c2) 
 {
