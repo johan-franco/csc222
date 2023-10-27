@@ -24,6 +24,7 @@ void Fraction:: plus(double add) {
     add = numerator + add;
     cout << "Result of addition is: " << add/denominator << endl;
     numerator = ceil(add);
+    fraction.simplify();
 }
 
 void Fraction:: minus(double sub) {
@@ -32,6 +33,7 @@ void Fraction:: minus(double sub) {
     sub = numerator - sub;
     cout << "Result of subtraction is: " << sub/denominator << endl;
     numerator = ceil(sub);
+    fraction.simplify();
 }
 
 double Fraction::convert_denom(double mod){
@@ -40,15 +42,31 @@ double Fraction::convert_denom(double mod){
 }
 
 void Fraction:: times(double mult) {
+    Fraction fraction = *this;
     mult = mult * numerator;
     cout << "Result of multiplication is: " << mult/denominator << endl;
     numerator = ceil(mult);
+    fraction.simplify();
 }
 
 void Fraction:: divided_by(double div) {
+    Fraction fraction = *this;
     div = div * denominator;
+    
     cout << "Result of division is: " << numerator/div << endl;
     denominator = ceil(div);
+    fraction.simplify();
+}
+
+void Fraction:: simplify() {
+    int min;
+    min = (numerator <= denominator)  ? min = numerator : min = denominator;
+    for(int i = min; i > 0; i--) {
+        if (numerator%i == 0 && denominator%i  == 0) {
+            numerator = numerator/i;
+            denominator = denominator/i; 
+        }
+    }
 }
 
 int main () {

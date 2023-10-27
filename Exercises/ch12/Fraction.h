@@ -13,4 +13,5 @@ struct Fraction {
     void minus(double sub);
     void times(double mult);
     void divided_by(double div);
+    void simplify();
 };
