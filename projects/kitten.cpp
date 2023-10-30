@@ -4,6 +4,9 @@
 #include <vector> 
 using namespace std;
 
+
+//Link to Problem https://ict.gctaa.net/sections/csc222/goals/resources/VT_HSContest_2015.pdf
+
 void insert_val(string arr[][100], int& rows, int& columns) {
     string input;
     int max_columns = 0;
