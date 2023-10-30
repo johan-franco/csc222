@@ -53,7 +53,7 @@ int main() {
     }
 
     for (int i = 0; i < 7; i++) {
-        cout<< path[i] <<" "; 
+        cout<< path[i] << " "; 
   }
 
     return 0;
