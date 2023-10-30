@@ -20,7 +20,7 @@ The illustration above corresponds to the sample input.
 ## Output
 Output the path to the ground, starting with the branch on which the kitten sits.
 
-<img src = "Kitten_Tree.png">
+<img src = "Tree.png">
 
 <table> 
 <tr><th>Input</th><th>Output</th></tr>
