@@ -23,8 +23,9 @@ string Fraction :: To_String() {
     return to_string(numerator) + "/" + to_string(denominator);
 }
 int main() {
-    Fraction p(4,5);
+    Fraction p(4,1);
 
     cout << p.To_String();
     return 0;
+    
 }
