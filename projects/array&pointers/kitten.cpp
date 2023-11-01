@@ -45,15 +45,15 @@ int main() {
             if(tree[i][k] == path[st]){
                 st ++;
                 path.push_back(tree[i][0]);
-                cout<< tree[i][0] << endl;
                 i = 0;
                 k = 0;
             }
+            cout << tree[i][k] << endl;
         }
     }
 
     for (int i = 0; i < 7; i++) {
-        cout<< path[i] << " "; 
+        cout << path[i] << " "; 
   }
 
     return 0;
