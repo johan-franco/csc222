@@ -1,5 +1,5 @@
 #include "card.h"
-
+#include <doctest.h>
 
 
 
