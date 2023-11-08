@@ -1,12 +1,11 @@
 #include "card.h"
-#include <doctest.h>
 
+Card::Card() {
+    suit = SPADES;
+    rank = ACE;
+}
 
-
-
-int main() {
-
-    Card p ( HEARTS, ACE);
-
-    return 0;
+Card::Card(Suit s, Rank r) {
+    suit = s;
+    rank = r;
 }

@@ -14,10 +14,8 @@ struct Card
     Rank rank;
     Suit suit;
 
-    Card( Suit s, Rank r) {
-        suit = s;
-        rank = r;
-    }
+    Card();
+    Card( Suit s, Rank r);
 
 };
 

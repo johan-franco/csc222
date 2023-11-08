@@ -6,5 +6,4 @@ Obj::Obj (){
 
 string Obj::to_string() {
 	return name;
-
 };
