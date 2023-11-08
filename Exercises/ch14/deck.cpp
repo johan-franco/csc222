@@ -1,14 +1,5 @@
 #include "deck.h"
-
-int Deck::find(const Card& card) 
-{
-    for (int i = 0; i < *this->cards.size(); i++) {
-        if (card.equals(*this->cards[i])) return i;
-    }
-    return -1;
-}
-
-Deck :: Deck() {    
+Deck::Deck() {    
         vector<Card> temp(52);
         cards = temp;
         int i = 0;
@@ -20,13 +11,16 @@ Deck :: Deck() {
             }
         }
     }
-Deck :: Deck(int){
+Deck::Deck(int size){
     vector<Card> temp(size);
     cards = temp;
 }
 
-int main() {
-    
-
-    return 0;
+int Deck::find(Card& card) 
+{
+    Deck p = *this;
+    for (int i = 0; i < p.cards.size(); i++) {
+        if (p.cards[i].equals(card)) return i;
+    }
+    return -1;
 }
