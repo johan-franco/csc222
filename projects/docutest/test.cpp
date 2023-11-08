@@ -1,9 +1,15 @@
 #include "test.h"
 
-Obj::Obj (){
+UnoC::UnoC (){
+	color = RED;
+	type = ONE;
+}
 
-};
+UnoC::UnoC( Color c, Type t) {
+	color = c;
+	type = t;
+}
 
-string Obj::to_string() {
-	return name;
-};
+bool UnoC::equals(UnoC& topCard) {
+	return (color == topCard.color || type == topCard.type);
+}

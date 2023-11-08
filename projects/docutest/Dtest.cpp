@@ -4,6 +4,9 @@
 using namespace std;
 
 TEST_CASE("Test can create and render MyObject") {
-    Obj myobj;
-    CHECK(myobj.to_string() == "This is Object");
+    UnoC topCard;
+    UnoC Match_Color(RED, REVERSE);
+    UnoC Match_Type(GREEN, ONE);
+    CHECK(Match_Color.equals(topCard) == true);
+    CHECK(Match_Type.equals(topCard) == true);
 } 

@@ -3,3 +3,4 @@ a.out
 a.exe
 .dSYM
 output
+.h.gch
