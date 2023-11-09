@@ -23,7 +23,7 @@ string UnoC::to_string() {
 
 vector<UnoC> build_deck()
 {
-    vector<UnoC> deck(80);
+    vector<UnoC> deck(88);
     int i = 0;
     for (Color col = RED; col <= GREEN; col = Color(col+1)) {
         for (Type typ = ZERO; typ <= SKIP; typ = Type(typ+1)) {
@@ -61,4 +61,20 @@ bool is_valid(UnoC play, UnoC played){
 int myrandom (int i) {
     srand (time(NULL));
     return rand()%i;
+}
+
+void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC>& deck){
+    for (int i = 0; i < computerHand.size(); i++){
+        if (is_valid(computerHand[i], discard.back())){
+            //topCard = draw_card(computerHand);
+            play(computerHand, i, discard);
+            return;
+        }
+    }
+    draw_card(computerHand, deck);
+    while (!is_valid(computerHand.back(), discard.back())){
+        draw_card(computerHand, deck);
+    }
+    //topCard = draw_card(computerHand)
+    play(computerHand, computerHand.size()-1, discard);
 }
