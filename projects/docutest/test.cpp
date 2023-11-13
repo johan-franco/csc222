@@ -22,18 +22,25 @@ string UnoC::to_string() {
 
     return colors[color] + " " + types[type];
 }
+void UnoC:: draw_card(vector<UnoC>&deck) {
+	*this = deck[0];
+	deck.erase(deck.begin());
+}
 
 vector<UnoC> build_deck()
 {
     vector<UnoC> deck(80);
     int i = 0;
-    for (Color col = RED; col <= GREEN; col = Color(col+1)) {
-        for (Type typ = ZERO; typ <= NINE; typ = Type(typ+1)) {
-            deck[i].color = col;
-            deck[i].type = typ;
-            i++;
-        }
-    }
+	while(i !=80) {
+		for (Color col = RED; col <= GREEN; col = Color(col+1)) {
+			for (Type typ = ZERO; typ <= NINE; typ = Type(typ+1)) {
+				deck[i].color = col;
+				deck[i].type = typ;
+				cout<< deck[i].to_string() <<endl;
+				i++;
+			}
+		}
+	}
     return deck;
 }
 

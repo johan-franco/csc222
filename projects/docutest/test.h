@@ -17,6 +17,7 @@ struct UnoC {
 	UnoC(Color c, Type t);
 	bool equals(UnoC& topCard);
 	string to_string();
+	void draw_card(vector<UnoC>&deck);
 };
 
 vector<UnoC> build_deck();

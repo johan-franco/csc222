@@ -30,7 +30,7 @@ TEST_CASE("Testing regular functions used in game.cpp") {
     Using this we can check how well play() works*/
     CHECK(discard[0].type == SEVEN);
     play(playerHand,3, discard);
-    //we discarded a red three
+    //we discarded a red three (now it is in discard)
     cout<< discard.back().type <<endl;
     CHECK(discard.back().type == THREE);
 }
