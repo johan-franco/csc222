@@ -26,7 +26,6 @@ int main(){
         computerTurn(computerHand, discard, deck);
         computerTurn(playerHand, discard, deck);
         
-       break; 
     }
     if (computerHand.empty()){
         cout << "Computer wins!" << endl;

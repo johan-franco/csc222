@@ -67,15 +67,18 @@ void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC
     for (int i = 0; i < computerHand.size(); i++){
         if (is_valid(computerHand[i], discard.back())){
             //topCard = draw_card(computerHand);
-			cout << " played" << computerHand[i] << endl;
+			cout << " played" << computerHand[i].to_string() << endl;
             play(computerHand, i, discard);
+			cout << "discard size" << discard.size() << endl;
+			cout<< "player deck size" << computerHand.size() << endl;
             return;
         }
     }
     draw_card(computerHand, deck);
+	cout << "New card drawn due to no other card : " << computerHand.back().to_string() << endl;
     while (!is_valid(computerHand.back(), discard.back())){
-		cout << "New card drawn due to no other card : " << computerHand.back() << endl;
-        draw_card(computerHand, deck);
+		
+        draw_card(discard, computerHand);
     }
     //topCard = draw_card(computerHand)
     play(computerHand, computerHand.size()-1, discard);
