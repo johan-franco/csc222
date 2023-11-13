@@ -5,13 +5,13 @@ using namespace std;
 
 TEST_CASE("Testing UnoC member functions and other necessary playing functions") {
     UnoC topCard;
-    UnoC Match_Color(RED, SKIP);
+    UnoC Match_Color(RED, NINE);
     UnoC Match_Type(GREEN, ONE);
     vector<UnoC> deck = build_deck();
 
     CHECK(Match_Color.equals(topCard) == true);
     CHECK(Match_Type.equals(topCard) == true);
-    CHECK(Match_Color.to_string() == "Red Skip");
+    CHECK(Match_Color.to_string() == "Red Nine");
     CHECK(deck[0].color == RED);
     
     vector<UnoC> playerHand;

@@ -16,17 +16,17 @@ bool UnoC::equals(UnoC& topCard) {
 }
 string UnoC::to_string() {
     vector<string> colors = {"Red", "Yellow", "Blue", "Green"};
-    vector<string> types = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "Skip"};
+    vector<string> types = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
     return colors[color] + " " + types[type];
 }
 
 vector<UnoC> build_deck()
 {
-    vector<UnoC> deck(88);
+    vector<UnoC> deck(80);
     int i = 0;
     for (Color col = RED; col <= GREEN; col = Color(col+1)) {
-        for (Type typ = ZERO; typ <= SKIP; typ = Type(typ+1)) {
+        for (Type typ = ZERO; typ <= NINE; typ = Type(typ+1)) {
             deck[i].color = col;
             deck[i].type = typ;
             i++;
@@ -67,14 +67,17 @@ void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC
     for (int i = 0; i < computerHand.size(); i++){
         if (is_valid(computerHand[i], discard.back())){
             //topCard = draw_card(computerHand);
+			cout << " played" << computerHand[i] << endl;
             play(computerHand, i, discard);
             return;
         }
     }
     draw_card(computerHand, deck);
     while (!is_valid(computerHand.back(), discard.back())){
+		cout << "New card drawn due to no other card : " << computerHand.back() << endl;
         draw_card(computerHand, deck);
     }
     //topCard = draw_card(computerHand)
     play(computerHand, computerHand.size()-1, discard);
 }
+

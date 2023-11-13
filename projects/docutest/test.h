@@ -5,7 +5,7 @@ using namespace std;
 
 enum Color {RED, YELLOW, BLUE, GREEN};
 enum Type {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
-           NINE, SKIP};
+           NINE};
 
 
 struct UnoC {
