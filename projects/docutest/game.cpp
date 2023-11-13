@@ -8,7 +8,7 @@ int main(){
 
     vector<UnoC> deck = build_deck();
     //unsigned seed = chrono::system_clock::now().time_since_epoch().count();
-    //shuffle (deck.begin(), deck.end(), default_random_engine(seed));
+    shuffle (deck.begin(), deck.end(), default_random_engine(seed));
     vector<UnoC> discard;
     
     vector<UnoC> computerHand;
