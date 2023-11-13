@@ -1,4 +1,6 @@
 #include "test.h"
+#include <cstdlib>
+#include <random>
 
 
 UnoC::UnoC (){
@@ -58,9 +60,11 @@ bool is_valid(UnoC play, UnoC played){
     return false;
 }
 
-int myrandom (int i) {
-    srand (time(NULL));
-    return rand()%i;
+int myrandom(int i) {
+	random_device rd;
+	default_random_engine gen(rd());
+	uniform_int_distribution<> dis(0, i - 1);
+    return dis(gen);
 }
 
 void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC>& deck){
@@ -69,18 +73,19 @@ void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC
             //topCard = draw_card(computerHand);
 			cout << " played" << computerHand[i].to_string() << endl;
             play(computerHand, i, discard);
-			cout << "discard size" << discard.size() << endl;
-			cout<< "player deck size" << computerHand.size() << endl;
             return;
         }
     }
     draw_card(computerHand, deck);
 	cout << "New card drawn due to no other card : " << computerHand.back().to_string() << endl;
-    while (!is_valid(computerHand.back(), discard.back())){
-		
-        draw_card(discard, computerHand);
-    }
     //topCard = draw_card(computerHand)
-    play(computerHand, computerHand.size()-1, discard);
+	if(computerHand.back().color == discard.back().color || computerHand.back().type == discard.back().type)
+    	play(computerHand, computerHand.size()-1, discard);
 }
 
+void printHand(vector<UnoC> hand, string t) {
+
+	for(int i = 0; i < hand.size(); i++) {
+		cout << t << "'s hand" <<  hand[i].to_string() << endl;
+	}
+}
