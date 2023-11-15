@@ -1,4 +1,4 @@
-#include "test.h"
+#include "Uno.h"
 #include <cstdlib>
 #include <random>
 
@@ -96,3 +96,30 @@ void printHand(vector<UnoC> hand, string t) {
 		cout << t << "'s hand" <<  hand[i].to_string() << endl;
 	}
 }
+
+void playerTurn(vector<UnoC>& playerHand, vector<UnoC>& discard, vector<UnoC>& deck){
+    int amount = 0;
+    int resp;
+    vector<int> index_hand;
+    cout<< "Playable Cards:"<< endl;
+    for (int i = 0; i < playerHand.size(); i++){
+        if (is_valid(playerHand[i], discard.back()) == true){
+            //topCard = draw_card(computerHand);
+			cout << playerHand[i].to_string() << endl;
+            index_hand.push_back(i);
+        }
+    }
+    if (amount == 0) {
+        draw_card(playerHand, deck);
+        cout << "New card drawn due to no other card : " << playerHand.back().to_string() << endl;
+        if(is_valid(playerHand.back(), discard.back() ) == true) {
+    	    play(playerHand, playerHand.size()-1, discard);
+            
+        }
+        return;
+    }
+    cout<< "What card will you play?" << endl;
+    cin >> resp;
+    play(playerHand, index_hand[resp], discard);
+}
+

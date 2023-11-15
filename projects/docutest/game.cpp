@@ -1,4 +1,4 @@
-#include "test.h"
+#include "Uno.h"
 #include <algorithm>
 #include <random>
 
@@ -31,7 +31,7 @@ int main(){
     while (!(computerHand.empty() || playerHand.empty())){
         computerTurn(computerHand, discard, deck);
         printHand(computerHand, "computer");
-        computerTurn(playerHand, discard, deck);
+        playerTurn(playerHand, discard, deck);
         printHand(playerHand, "player");
         
     }

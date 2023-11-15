@@ -27,4 +27,5 @@ void play(vector<UnoC>& origDeck, int num, vector<UnoC>& playDeck);
 bool is_valid(UnoC play, UnoC played);
 int myrandom (int i);
 void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC>& deck);
+void playerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC>& deck);
 void printHand(vector<UnoC> hand, string t);
