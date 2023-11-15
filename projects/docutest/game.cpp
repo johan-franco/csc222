@@ -19,10 +19,7 @@ int main(){
         playerHand.push_back(deck[0]);
         deck.erase(deck.begin());
     }
-    for (int i = 0; i < 7; i++){
-        cout << computerHand[i].to_string() << endl;
-    }
-    cout << endl;
+    cout << "Your Hand:"<< endl;
     for (int i = 0; i < 7; i++){
         cout << playerHand[i].to_string() << endl;
     }
@@ -30,7 +27,6 @@ int main(){
     discard.push_back(draw_card(computerHand));
     while (!(computerHand.empty() || playerHand.empty())){
         computerTurn(computerHand, discard, deck);
-        printHand(computerHand, "computer");
         playerTurn(playerHand, discard, deck);
         printHand(playerHand, "player");
         

@@ -36,7 +36,6 @@ vector<UnoC> build_deck()
 			for (Type typ = ZERO; typ <= NINE; typ = Type(typ+1)) {
 				deck[i].color = col;
 				deck[i].type = typ;
-				cout<< deck[i].to_string() <<endl;
 				i++;
 			}
 		}
@@ -78,7 +77,7 @@ void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC
     for (int i = 0; i < computerHand.size(); i++){
         if (is_valid(computerHand[i], discard.back())){
             //topCard = draw_card(computerHand);
-			cout << " played" << computerHand[i].to_string() << endl;
+			cout << "Computer played: " << computerHand[i].to_string() << endl;
             play(computerHand, i, discard);
             return;
         }
@@ -93,7 +92,7 @@ void computerTurn(vector<UnoC>& computerHand, vector<UnoC>& discard, vector<UnoC
 void printHand(vector<UnoC> hand, string t) {
 
 	for(int i = 0; i < hand.size(); i++) {
-		cout << t << "'s hand" <<  hand[i].to_string() << endl;
+		cout << t << "'s hand " <<  hand[i].to_string() << endl;
 	}
 }
 
@@ -101,12 +100,13 @@ void playerTurn(vector<UnoC>& playerHand, vector<UnoC>& discard, vector<UnoC>& d
     int amount = 0;
     int resp;
     vector<int> index_hand;
-    cout<< "Playable Cards:"<< endl;
+    cout<< "Current top card in deck: " << discard.back().to_string() << endl << "Playable Cards:"<< endl;
     for (int i = 0; i < playerHand.size(); i++){
         if (is_valid(playerHand[i], discard.back()) == true){
             //topCard = draw_card(computerHand);
-			cout << playerHand[i].to_string() << endl;
+			cout << amount + 1 << ")"<< playerHand[i].to_string() << endl;
             index_hand.push_back(i);
+            amount++;
         }
     }
     if (amount == 0) {
@@ -120,6 +120,6 @@ void playerTurn(vector<UnoC>& playerHand, vector<UnoC>& discard, vector<UnoC>& d
     }
     cout<< "What card will you play?" << endl;
     cin >> resp;
-    play(playerHand, index_hand[resp], discard);
+    play(playerHand, index_hand[resp-1], discard);
 }
 
