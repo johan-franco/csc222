@@ -24,3 +24,9 @@ int Deck::find(Card& card)
     }
     return -1;
 }
+
+void Deck::swap(int swap_card1, int swap_card2) {
+    Deck adeck = *this;
+    // Swap cards at index1 and index2
+    swap(adeck[swap_card1], adeck[swap_card2]);
+}

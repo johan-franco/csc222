@@ -10,5 +10,6 @@ struct Deck {
 
     Deck(int size);
     int find( Card& card);
+    void swap(int index_card, int index_card2);
 
 };
