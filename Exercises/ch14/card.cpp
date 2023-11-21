@@ -57,10 +57,22 @@ int Deck::find(Card& card)
 
 void Deck::swap(int swap_card1, int swap_card2) {
     Deck adeck = *this;
-    // Swap cards at index1 and index2
     Card temp = adeck.cards[swap_card1];
+
+    // Swap cards at index1 and index2
     adeck.cards[swap_card1] = adeck.cards[swap_card2];
     adeck.cards[swap_card2] = temp;
+}
 
-    
+int Deck::find_lowest(int min, int max) {
+    vector<int> lowest = {0,0};
+    vector<Card> deck = cards;
+    while (min <= max) {
+        if (deck[min].rank < lowest[0]) {
+            lowest[0] = deck[min].rank;
+            lowest[1] = min;
+        }
+        min++;
+    }
+    return lowest[1];
 }
