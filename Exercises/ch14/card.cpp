@@ -29,14 +29,16 @@ vector<Card> build_deck() {
         for (Rank rank = ACE; rank <= KING; rank = Rank(rank+1)) {
             cards[i].suit = suit;
             cards[i].rank = rank;
+            cout << cards[i].rank << endl;
             i++;
         }
+        
     }
-    return temp;
+    return cards;
 }
 
 Deck::Deck() {    
-    cards = build_deck();    
+    cards = build_deck();  
 }
     
 

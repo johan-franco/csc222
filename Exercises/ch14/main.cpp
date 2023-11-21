@@ -3,8 +3,12 @@
 using namespace std;
 
 int main() {
-    Card mycard(SPADES, ACE);
     Deck mydeck;
-    cout << mydeck.cards[3].rank << ' ' << mydeck.cards[3].suit ;
+    //Testing swap
+    cout << "Before Swap:"<< endl << mydeck.cards[20].to_string() << " " << mydeck.cards[30].to_string() << endl;
+    mydeck.swap(20,30);
+    cout << "After Swap:"<< endl << mydeck.cards[20].to_string() << " " << mydeck.cards[30].to_string() << endl;
+
+
     return 0;
 }
