@@ -5,6 +5,6 @@ using namespace std;
 int main() {
     Card mycard(SPADES, ACE);
     Deck mydeck;
-    cout << mydeck[3];
+    cout << mydeck.cards[3].rank << ' ' << mydeck.cards[3].suit ;
     return 0;
 }

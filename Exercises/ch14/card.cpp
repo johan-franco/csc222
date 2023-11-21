@@ -58,5 +58,9 @@ int Deck::find(Card& card)
 void Deck::swap(int swap_card1, int swap_card2) {
     Deck adeck = *this;
     // Swap cards at index1 and index2
-    swap(adeck.cards[swap_card1], adeck.cards[swap_card2]);
+    Card temp = adeck.cards[swap_card1];
+    adeck.cards[swap_card1] = adeck.cards[swap_card2];
+    adeck.cards[swap_card2] = temp;
+
+    
 }

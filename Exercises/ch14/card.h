@@ -17,7 +17,7 @@ struct Card
     Suit suit;
 
     Card();
-    Card( Suit s, Rank r);
+    Card(Suit s, Rank r);
 
     bool equals( Card& c2);
     string to_string();
