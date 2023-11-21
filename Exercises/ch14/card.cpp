@@ -29,7 +29,6 @@ vector<Card> build_deck() {
         for (Rank rank = ACE; rank <= KING; rank = Rank(rank+1)) {
             cards[i].suit = suit;
             cards[i].rank = rank;
-            cout << cards[i].rank << endl;
             i++;
         }
         
@@ -58,12 +57,11 @@ int Deck::find(Card& card)
 }
 
 void Deck::swap(int swap_card1, int swap_card2) {
-    Deck adeck = *this;
-    Card temp = adeck.cards[swap_card1];
+    Card temp = cards[swap_card1];
 
     // Swap cards at index1 and index2
-    adeck.cards[swap_card1] = adeck.cards[swap_card2];
-    adeck.cards[swap_card2] = temp;
+    cards[swap_card1] = cards[swap_card2];
+    cards[swap_card2] = temp;
 }
 
 int Deck::find_lowest(int min, int max) {
