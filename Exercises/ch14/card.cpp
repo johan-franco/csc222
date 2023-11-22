@@ -91,3 +91,38 @@ void Deck::sortLH() {
         mydeck.swap(i, index_of_lowest);
     }
 }
+
+Deck Deck::merge(const Deck& d) const
+{
+    // creates a new deck big enough for all the cards
+    Deck result(cards.size() + d.cards.size());
+
+    // use index i for place in first deck, j for place in second deck
+    int i = 0;
+    int j = 0;
+
+    // k traverses the result deck
+    for (int k = 0; k < result.cards.size(); k++) {
+        if (k > cards.size()-1 || d.cards[j].rank > cards[i].rank) {
+            result.cards[k] = d.cards[j];
+            i++;
+            j++;
+        } 
+        if (k > d.cards.size()-1 || cards[i].rank >= d.cards[j].rank) {
+            result.cards[k] = cards[i];
+            i++;
+            j++;
+        } 
+
+    }
+    return result;
+}
+
+Deck Deck::merge_sort() const
+{
+    // find the midpoint of the deck
+    // divide the deck into two subdecks
+    // sort the subdecks using sort
+    // merge the two halves and return the result
+}
+

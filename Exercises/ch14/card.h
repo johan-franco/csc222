@@ -34,4 +34,6 @@ struct Deck {
     void swap(int index_card, int index_card2);
     int find_lowest(int l, int h);
     void sortLH();
+    Deck merge(const Deck& d) const;
+    Deck merge_sort() const;
 };
