@@ -121,8 +121,13 @@ Deck Deck::merge(const Deck& d) const
 Deck Deck::merge_sort() const
 {
     // find the midpoint of the deck
-    // divide the deck into two subdecks
-    // sort the subdecks using sort
-    // merge the two halves and return the result
+    int midpoint= (cards.size()/2)-1;
+
+    Deck first_half;
+    first_half.cards = cards[0, midpoint];
+
+    Deck sec_half;
+    sec_half.cards = cards[midpoint, cards.back()];
+    return sec_half;
 }
 

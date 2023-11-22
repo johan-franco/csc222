@@ -11,7 +11,10 @@ int main() {
 
     int lowestIndex = mydeck.find_lowest(12, 42);
     cout << "Index of the lowest card between 12 and 42: " << lowestIndex << endl << mydeck.cards[lowestIndex].to_string();
+    Deck anotherdeck;
 
+    Deck megadeck = mydeck.merge(anotherdeck);
+    cout << "Mega Deck size: " << endl <<megadeck.cards.size();
     
 
     return 0;
