@@ -65,6 +65,7 @@ void Deck::swap(int swap_card1, int swap_card2) {
 }
 
 int Deck::find_lowest(int min, int max) {
+    int temp = min;
     vector<int> lowest = {0,0};
     vector<Card> deck = cards;
     if (max < min) {
@@ -77,15 +78,16 @@ int Deck::find_lowest(int min, int max) {
         }
         min++;
     }
-    return lowest[1];
+    return lowest[1] + temp;
 }
 
 void Deck::sortLH() {
+    Deck mydeck = *this;
     for (int i = 0; i < cards.size(); i++) {
         int index_of_lowest = find_lowest(i, cards.size()-1);
         if (index_of_lowest == -1) {
             break;
         }
-        cards.swap(i, index_of_lowest);
+        mydeck.swap(i, index_of_lowest);
     }
 }
