@@ -76,3 +76,10 @@ int Deck::find_lowest(int min, int max) {
     }
     return lowest[1];
 }
+
+void Deck::sortLH() {
+    for (int i = 0; i < cards.size(); i++) {
+        int index_of_lowest = find_lowest(i, cards.size()-1);
+        cards.swap(i, index_of_lowest);
+    }
+}
