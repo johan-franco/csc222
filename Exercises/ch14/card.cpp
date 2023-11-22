@@ -105,13 +105,11 @@ Deck Deck::merge(const Deck& d) const
     for (int k = 0; k < result.cards.size(); k++) {
         if (k > cards.size()-1 || d.cards[j].rank > cards[i].rank) {
             result.cards[k] = d.cards[j];
-            i++;
             j++;
         } 
         if (k > d.cards.size()-1 || cards[i].rank >= d.cards[j].rank) {
             result.cards[k] = cards[i];
             i++;
-            j++;
         } 
 
     }
@@ -121,13 +119,20 @@ Deck Deck::merge(const Deck& d) const
 Deck Deck::merge_sort() const
 {
     // find the midpoint of the deck
-    int midpoint= (cards.size()/2)-1;
+    int midpoint = cards.size()/2;
 
-    Deck first_half;
-    first_half.cards = cards[0, midpoint];
+    Deck first_half(midpoint);
+    first_half.cards.assign(cards.begin(), cards.begin() +midpoint);
 
-    Deck sec_half;
-    sec_half.cards = cards[midpoint, cards.back()];
-    return sec_half;
+    Deck sec_half(midpoint);
+    sec_half.cards.assign(cards.begin() + midpoint, cards.end());
+
+    Deck sortedresult = first_half.merge(sec_half);
+    return sortedresult;
 }
 
+void Deck::printDeck() {
+	for(int i = 0; i < cards.size(); i++) {
+		cout << cards[i].to_string() << endl;
+	}
+}

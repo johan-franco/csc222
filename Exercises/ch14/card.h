@@ -36,4 +36,5 @@ struct Deck {
     void sortLH();
     Deck merge(const Deck& d) const;
     Deck merge_sort() const;
+    void printDeck();
 };

@@ -14,7 +14,11 @@ int main() {
     Deck anotherdeck;
 
     Deck megadeck = mydeck.merge(anotherdeck);
-    cout << "Mega Deck size: " << endl <<megadeck.cards.size();
+    cout << "Mega Deck size: " << endl <<megadeck.cards.size()<< endl;
+
+    Deck greaterdeck = mydeck.merge(megadeck);
+    cout<< "Sorted Greater Deck Size: " << endl << greaterdeck.cards.size()<< endl;
+    greaterdeck.printDeck();
     
 
     return 0;
