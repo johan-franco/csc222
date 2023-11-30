@@ -65,8 +65,10 @@ void Deck::swap(int swap_card1, int swap_card2) {
 }
 
 int Deck::find_lowest(int min, int max) {
+    Deck range;
+    range.cards = cards[minmax];
     int temp = min;
-    vector<int> lowest = {0,0};
+    vector<int> lowest = {200,0};
     vector<Card> deck = cards;
     if (max < min) {
         return -1;
@@ -103,7 +105,7 @@ Deck Deck::merge(const Deck& d) const
 
     // k traverses the result deck
     for (int k = 0; k < result.cards.size(); k++) {
-        if (k > cards.size()-1 || d.cards[j].rank > cards[i].rank) {
+        if (k > cards.size()-1 || d.cards[j].rank >= cards[i].rank) {
             result.cards[k] = d.cards[j];
             j++;
         } 
