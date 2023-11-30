@@ -32,4 +32,22 @@ class Complex {
         if (polar = false) calculate_polar();
         return theta;
     }
+    string Complex::str_cartesian(){
+        return to_string(get_real()) + " + " + to_string(get_imag()) + "i";
+    }
+
+    string Complex::str_polar(){
+        string theta = to_string(get_theta());
+        string mag = to_string(get_mag());
+        return mag  + "e^" + theta + "i";
+    }
+    Complex Complex::operator + (const Complex& c) {
+        return Complex(real + c.real, imag + c.imag);
+    }
+    Complex Complex::operator - (const Complex& c){
+        return Complex(real - c.real, imag - c.imag);
+    }
+    Complex Complex::operator / (const Complex& c){
+        return Complex(real / c.real, imag / c.imag);
+    }
 };
