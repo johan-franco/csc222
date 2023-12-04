@@ -34,4 +34,5 @@ public:
     string str_cartesian();
     string str_polar();
     double abs();
+    friend ostream &operator<<(ostream &os, const Complex &c);
 };

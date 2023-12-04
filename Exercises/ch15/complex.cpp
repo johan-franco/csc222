@@ -54,3 +54,9 @@ Complex Complex::operator - (const Complex& c){
 Complex Complex::operator / (const Complex& c){
     return Complex(real / c.real, imag / c.imag);
 }
+
+ostream &operator<<(ostream& os,  const Complex& comp)
+{
+    os << "The complex number is: " << comp.real<< " + " << comp.imag <<'i';
+    return os;
+}
