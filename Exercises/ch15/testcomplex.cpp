@@ -9,7 +9,7 @@ TEST_CASE("Test can create and render a Complex number") {
     Complex c2(2, 3);
     CHECK(c2.str_cartesian() == "2.000000 + 3.000000i");
     CHECK(c2.str_polar() == "3.605551e^0.982794i");
-    Complex c3(1, 0.8, false);
+    Complex c3(1, 0.8, POLAR);
     CHECK(c3.str_polar() == "1.000000e^0.800000i");
 }
 

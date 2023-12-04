@@ -5,6 +5,7 @@
 using namespace std;
 
 
+enum Flag {POLAR};
 
 class Complex
 {
@@ -18,7 +19,7 @@ class Complex
 public:
     Complex();
     Complex(double r, double i);
-    Complex(double m, double t, bool polar);
+    Complex(double m, double t, Flag);
 
 
     double get_real();

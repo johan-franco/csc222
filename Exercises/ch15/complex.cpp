@@ -6,6 +6,10 @@ Complex::Complex() {
 Complex::Complex(double r,double i) {
     real = r; imag = i; polar = false;
 }
+Complex::Complex(double m, double t, Flag) {
+    mag = m; theta = t;
+    polar = true;
+}
 double Complex::get_real() {
     return real;
 }
