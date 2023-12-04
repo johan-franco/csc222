@@ -40,10 +40,10 @@ string Complex::str_polar(){
     return mag  + "e^" + theta + "i";
     }
 
-void Complex::abs(){
+double Complex::abs()
+{
     if (polar == false) calculate_polar();
-    real = ::abs(real);
-    imag = ::abs(imag);
+    return mag;
 }
 Complex Complex::operator + (const Complex& c) {
     return Complex(real + c.real, imag + c.imag);

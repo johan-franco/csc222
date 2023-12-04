@@ -34,6 +34,6 @@ TEST_CASE("Test can divide Complex numbers with /") {
 }
 
 TEST_CASE("Test abs of Complex number") {
-    //Complex c(3, 4);
-    //CHECK(c.abs() == 5.000000);
+    Complex c(3, 4);
+    CHECK(c.abs() == 5.000000);
 }

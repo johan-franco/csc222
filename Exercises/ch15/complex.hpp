@@ -33,5 +33,5 @@ public:
     Complex operator / (const Complex& c);
     string str_cartesian();
     string str_polar();
-    void abs();
+    double abs();
 };
