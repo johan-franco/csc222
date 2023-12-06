@@ -24,3 +24,9 @@ Point Point::operator + (const Point& p) {
 Point Point::operator - (const Point& p) {
     return Point(x - p.x, y - p.y);
 }
+
+ostream &operator<<(ostream& os,  const Point& point)
+{
+    os << "The point coordinates are (" << point.x<< " , " << point.y <<')';
+    return os;
+}
