@@ -1,4 +1,5 @@
 #include "complex.hpp"
+#include <assert.h>
 
 Complex::Complex() {
     real = 0; imag = 0; polar = false;
@@ -9,6 +10,7 @@ Complex::Complex(double r,double i) {
 Complex::Complex(double m, double t, Flag) {
     mag = m; theta = t;
     polar = true;
+    calculate_cartesian();
 }
 double Complex::get_real() {
     return real;
@@ -20,6 +22,11 @@ void Complex::calculate_polar(){
     mag = sqrt(real * real + imag * imag);
     theta = atan(imag / real);
     polar = true;
+}
+void Complex::calculate_cartesian(){
+    assert(polar == true);
+    real = mag*cos(theta);
+    imag = mag*sin(theta);
 }
 double Complex::get_mag() {
     if (polar == false) calculate_polar();
@@ -52,9 +59,19 @@ Complex Complex::operator - (const Complex& c){
     return Complex(real - c.real, imag - c.imag);
 }
 Complex Complex::operator / (const Complex& c){
-    return Complex(real / c.real, imag / c.imag);
+    if (polar == false){ 
+        calculate_polar();}
+    if (c.polar == false){
+        c.calculate_polar();}
+    return Complex(real / c.real, imag / c.imag, polar);
 }
-
+Complex Complex::operator*(Complex &mult) {
+  if (polar == false){
+    calculate_polar();}
+  if (mult.polar == false){
+    mult.calculate_polar();}
+  return Complex(mag * mult.mag, theta + mult.theta, POLAR);
+}
 ostream &operator<<(ostream& os,  const Complex& comp)
 {
     os << "The complex number is: " << comp.real<< " + " << comp.imag <<'i';

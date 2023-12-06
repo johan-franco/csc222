@@ -28,7 +28,9 @@ TEST_CASE("Test can subtract Complex numbers with -") {
 }
 
 TEST_CASE("Test can multiply Complex numbers with *") {
-
+    Complex c1(3,4);
+    Complex c2(3,4);
+    
 }
 
 TEST_CASE("Test can divide Complex numbers with /") {
