@@ -35,7 +35,10 @@ TEST_CASE("Test can multiply Complex numbers with *") {
 }
 
 TEST_CASE("Test can divide Complex numbers with /") {
-
+    Complex c1(8.0,21.0, POLAR);
+    Complex c2(2.0,7.0, POLAR);
+    Complex c3 = c1 / c2;
+    CHECK(c3.str_polar() == "4.000000e^14.000000i");
 }
 
 TEST_CASE("Test abs of Complex number") {
