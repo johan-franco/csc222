@@ -58,12 +58,12 @@ Complex Complex::operator + (const Complex& c) {
 Complex Complex::operator - (const Complex& c){
     return Complex(real - c.real, imag - c.imag);
 }
-Complex Complex::operator / (const Complex& c){
+Complex Complex::operator / ( Complex& c){
     if (polar == false){ 
         calculate_polar();}
     if (c.polar == false){
         c.calculate_polar();}
-    return Complex(real / c.real, imag / c.imag, polar);
+    return Complex(mag / c.mag, theta- c.theta, POLAR);
 }
 Complex Complex::operator*(Complex &mult) {
   if (polar == false){

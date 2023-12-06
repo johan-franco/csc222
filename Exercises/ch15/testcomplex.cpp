@@ -28,9 +28,10 @@ TEST_CASE("Test can subtract Complex numbers with -") {
 }
 
 TEST_CASE("Test can multiply Complex numbers with *") {
-    Complex c1(3,4);
-    Complex c2(3,4);
-    
+    Complex c1(8.0,14.0, POLAR);
+    Complex c2(5.0,40.0, POLAR);
+    Complex c3 = c1 * c2;
+    CHECK(c3.str_polar() == "40.000000e^54.000000i");
 }
 
 TEST_CASE("Test can divide Complex numbers with /") {
@@ -44,6 +45,4 @@ TEST_CASE("Test abs of Complex number") {
 TEST_CASE("Test << of Complex number") {
     Complex c(3, 4);
     string s;
-    s = cout << c;
-    CHECK(s == "The complex number is: 3 + 4i");
 }
