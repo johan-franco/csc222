@@ -6,7 +6,7 @@ using namespace std;
 
 class Point {
     double x, y;
-    double mag;
+    double dist;
 
 public:
     Point();
@@ -14,12 +14,13 @@ public:
 
     double get_x();
     double get_y();
-    double get_mag();
+    double get_dist();
 
+    void calc_dist();
     string tostring();
 
-    Point operator + (const Point& c);
-    Point operator - (const Point& );
+    Point operator + (const Point& p);
+    Point operator - (const Point& p);
 
     friend ostream &operator<<(ostream &os, const Point &c);
 };

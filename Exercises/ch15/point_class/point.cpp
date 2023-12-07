@@ -12,7 +12,12 @@ double Point::get_x() {
 double Point::get_y() {
     return y;
 }
-
+double Point::get_dist() {
+    return dist;
+}
+void Point::calc_dist(){
+    dist = sqrt(x * x + y * y);
+}
 string Point::tostring() {
     string s = "(" + to_string(get_x()) + ","+ to_string(get_y()) + ")";
     return s;
