@@ -18,6 +18,7 @@ public:
 
     void calc_dist();
     string to_string();
+    double distance(const Point&p2);
 
     Point operator + (const Point& p);
     Point operator - (const Point& p);

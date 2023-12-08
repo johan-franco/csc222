@@ -33,5 +33,5 @@ TEST_CASE("Test can multiply Point by a scalar with *") {
 TEST_CASE("Test can find distance between two Points") {
     Point p1(3, 0);
     Point p2(0, 4);
-    CHECK(p1.distance(p2) == 5.000000);
+    CHECK(p1.distance(p2) == 5.0000000);
 }

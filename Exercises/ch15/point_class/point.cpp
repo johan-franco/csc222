@@ -19,8 +19,15 @@ double Point::get_dist() {
 void Point::calc_dist(){
     dist = sqrt(x * x + y * y);
 }
+double Point::distance(const Point&p2) {
+    double final_x = p2.get_x() - get_x();
+    double final_y = p2.get_y() - get_y();
+    double distance = sqrt(final_x*final_x + final_y*final_y) ;
+    return distance;
+}
+
 string Point::to_string() {
-    string s = "(" + ::to_string(get_x()) + ", "+ ::to_string(get_y()) + ")";
+    string s = "(" + ::to_string(int(get_x())) + ", "+ ::to_string(int(get_y())) + ")";
     return s;
 }
 
