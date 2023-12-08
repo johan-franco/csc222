@@ -12,15 +12,16 @@ public:
     Point();
     Point(double cordx,double cordy);
 
-    double get_x();
-    double get_y();
+    double get_x() const;
+    double get_y() const;
     double get_dist();
 
     void calc_dist();
-    string tostring();
+    string to_string();
 
     Point operator + (const Point& p);
     Point operator - (const Point& p);
+    friend Point operator * (int i, const Point& p);
 
     friend ostream &operator<<(ostream &os, const Point &c);
 };
