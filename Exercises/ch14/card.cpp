@@ -65,32 +65,25 @@ void Deck::swap(int swap_card1, int swap_card2) {
 }
 
 int Deck::find_lowest(int min, int max) {
-    Deck range;
-    range.cards = cards[minmax];
-    int temp = min;
-    vector<int> lowest = {200,0};
-    vector<Card> deck = cards;
-    if (max < min) {
-        return -1;
+  int lowest = this->cards[min].rank;
+  int index = min;
+
+  for (int i = 0; i < max - min; i++) {
+    if (this->cards[i + min].rank < lowest) {
+      lowest = this->cards[i + min].rank;
+      index = i + min;
     }
-    while (min <= max) {
-        if (deck[min].rank < lowest[0]) {
-            lowest[0] = deck[min].rank;
-            lowest[1] = min;
-        }
-        min++;
-    }
-    return lowest[1] + temp;
+  }
+  return index;
 }
 
 void Deck::sortLH() {
-    Deck mydeck = *this;
     for (int i = 0; i < cards.size(); i++) {
-        int index_of_lowest = find_lowest(i, cards.size()-1);
+        int index_of_lowest = this->find_lowest(i, cards.size()-1);
         if (index_of_lowest == -1) {
             break;
         }
-        mydeck.swap(i, index_of_lowest);
+        this->swap(i, index_of_lowest);
     }
 }
 
@@ -108,10 +101,12 @@ Deck Deck::merge(const Deck& d) const
         if (k > cards.size()-1 || d.cards[j].rank >= cards[i].rank) {
             result.cards[k] = d.cards[j];
             j++;
+            continue;
         } 
         if (k > d.cards.size()-1 || cards[i].rank >= d.cards[j].rank) {
             result.cards[k] = cards[i];
             i++;
+            continue;
         } 
 
     }
