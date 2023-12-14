@@ -4,3 +4,5 @@ a.exe
 .dSYM
 output
 .h.gch
+.gch
+cards.h.gch
