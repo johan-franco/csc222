@@ -137,7 +137,7 @@ void Deck::printDeck() {
 
 Card Deck::popCard() {
     Card card1 = cards[0];
-    cards.erase(cards.begin()+1);
+    cards.erase(cards.begin());
     return card1;
 }
 
