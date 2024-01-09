@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 
 #define SCREEN_WIDTH    800
-#define SCREEN_HEIGHT   600
-
+#define SCREEN_HEIGHT   800
+using namespace std; 
 int main(int argc, char* argv[])
 {
     // Unused argc, argv
@@ -44,7 +44,8 @@ int main(int argc, char* argv[])
         {
             // Declare rect of square
             SDL_Rect squareRect;
-
+            int y = 0;
+            int x = 0;
             // Square dimensions: Half of the min(SCREEN_WIDTH, SCREEN_HEIGHT)
             squareRect.w = std::min(SCREEN_WIDTH, SCREEN_HEIGHT) / 2;
             squareRect.h = std::min(SCREEN_WIDTH, SCREEN_HEIGHT) / 2;
@@ -52,8 +53,7 @@ int main(int argc, char* argv[])
             // Square position: In the middle of the screen
             squareRect.x = SCREEN_WIDTH / 2 - squareRect.w / 2;
             squareRect.y = SCREEN_HEIGHT / 2 - squareRect.h / 2;
-
-
+            
             // Event loop exit flag
             bool quit = false;
 
@@ -61,8 +61,6 @@ int main(int argc, char* argv[])
             while(!quit)
             {
                 SDL_Event e;
-
-                // Wait indefinitely for the next available event
                 SDL_WaitEvent(&e);
 
                 // User requests quit
@@ -70,21 +68,29 @@ int main(int argc, char* argv[])
                 {
                     quit = true;
                 }
+                if(e.type == SDL_MOUSEBUTTONDOWN) {
+                    SDL_GetMouseState(&x, &y);
+                    cout << x << " "<< y <<endl;
+                }
 
-                // Initialize renderer color white for the background
+
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-                // Clear screen
                 SDL_RenderClear(renderer);
+                SDL_SetRenderDrawColor( renderer, 0, 0, 0, 0 );  
 
-                // Set renderer color red to draw the square
-                SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
 
-                // Draw filled square
-                SDL_RenderFillRect(renderer, &squareRect);
+                SDL_RenderDrawRect(renderer, &squareRect);
 
-                // Update screen
+                for (int i = 0; i < 16; i++) {
+                    for (int k = 0; k < 16; k++){
+                        SDL_Rect rectToDraw = {k*50,i*50,50,50};
+                        SDL_RenderDrawRect(renderer, &rectToDraw);
+                    }
+
+                }
                 SDL_RenderPresent(renderer);
+ 
             }
 
             // Destroy renderer
