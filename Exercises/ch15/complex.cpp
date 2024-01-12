@@ -4,7 +4,7 @@
 Complex::Complex() {
     real = 0; imag = 0; polar = false;
 }
-Complex::Complex(double r,double i) {
+Complex::Complex(double r, double i) {
     real = r; imag = i; polar = false;
 }
 Complex::Complex(double m, double t, Flag) {

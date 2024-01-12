@@ -1,6 +1,5 @@
-#include <iostream>
 #include <algorithm>
-
+#include "mines.hpp"
 #include <SDL2/SDL.h>
 
 #define SCREEN_WIDTH    800
@@ -21,7 +20,7 @@ int main(int argc, char* argv[])
     }
 
     // Create window
-    SDL_Window *window = SDL_CreateWindow("Barry",
+    SDL_Window *window = SDL_CreateWindow("Minesweeper",
                                           SDL_WINDOWPOS_UNDEFINED,
                                           SDL_WINDOWPOS_UNDEFINED,
                                           SCREEN_WIDTH, SCREEN_HEIGHT,
@@ -53,6 +52,17 @@ int main(int argc, char* argv[])
             // Square position: In the middle of the screen
             squareRect.x = SCREEN_WIDTH / 2 - squareRect.w / 2;
             squareRect.y = SCREEN_HEIGHT / 2 - squareRect.h / 2;
+
+            Grid a;
+            int m = 0;
+            srand((unsigned) time(NULL));
+            for (int i = 0; i < 16; i++) {
+                for (int k = 0; k < 16; k++){
+                    m = rand()%2;
+                    cout << m << endl;
+                    a.map.push_back(Boxes(i, k, m));
+                }
+            }
             
             // Event loop exit flag
             bool quit = false;
@@ -81,7 +91,7 @@ int main(int argc, char* argv[])
 
 
                 SDL_RenderDrawRect(renderer, &squareRect);
-
+                
                 for (int i = 0; i < 16; i++) {
                     for (int k = 0; k < 16; k++){
                         SDL_Rect rectToDraw = {k*50,i*50,50,50};
