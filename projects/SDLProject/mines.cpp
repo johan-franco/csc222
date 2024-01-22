@@ -10,3 +10,23 @@ Boxes::Boxes(int x, int y, bool m) {
     mine = m;
 }
 
+int Grid::check_mines(){
+    int mines = 0; 
+    for(int i = 0; i < map.size();i++){
+        if (map[i].mine == true) {
+            mines++;
+        }
+    }
+    return mines;
+}
+
+Boxes Grid::find_box(int x, int y){
+    Boxes p = map[0];
+    for(int i = 0; i < map.size();i++){
+        if (map[i].xmin < x && x < map[i].xmax && map[i].ymin < y && y< map[i].ymax) {
+           p = map[i];
+           cout << map[i].xmax<< "," << map[i].ymax<< endl; 
+        }
+    }
+    return p;
+}

@@ -1,6 +1,8 @@
 #include <algorithm>
 #include "mines.hpp"
 #include <SDL2/SDL.h>
+#include <cstdlib> 
+#include <time.h> 
 
 #define SCREEN_WIDTH    800
 #define SCREEN_HEIGHT   800
@@ -60,7 +62,14 @@ int main(int argc, char* argv[])
                 for (int k = 0; k < 16; k++){
                     m = rand()%2;
                     cout << m << endl;
-                    a.map.push_back(Boxes(i, k, m));
+                    if(a.check_mines() < 40){
+                        Boxes p(i, k, m);
+                        a.map.push_back(p);
+                    }
+                    else{
+                        Boxes l(i,k,false);
+                        a.map.push_back(l);
+                    }
                 }
             }
             
@@ -81,6 +90,9 @@ int main(int argc, char* argv[])
                 if(e.type == SDL_MOUSEBUTTONDOWN) {
                     SDL_GetMouseState(&x, &y);
                     cout << x << " "<< y <<endl;
+                    Boxes clicked = a.find_box(x,y);
+                    cout << "You clicked a Box that had range of (" << clicked.xmin << "," << clicked.ymin<< ") to (" << clicked.xmax << "," << clicked.ymax << ")";
+
                 }
 
 
@@ -91,13 +103,11 @@ int main(int argc, char* argv[])
 
 
                 SDL_RenderDrawRect(renderer, &squareRect);
-                
                 for (int i = 0; i < 16; i++) {
                     for (int k = 0; k < 16; k++){
                         SDL_Rect rectToDraw = {k*50,i*50,50,50};
                         SDL_RenderDrawRect(renderer, &rectToDraw);
                     }
-
                 }
                 SDL_RenderPresent(renderer);
  
