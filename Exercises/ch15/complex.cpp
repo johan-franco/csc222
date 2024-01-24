@@ -15,6 +15,10 @@ Complex::Complex(double m, double t, Flag) {
 double Complex::get_real() {
     return real;
 }
+Complex a;
+a.get_real();
+
+function()
 double Complex::get_imag() {
     return imag;
 }

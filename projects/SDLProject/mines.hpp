@@ -14,6 +14,7 @@ struct Boxes {
     bool mine;
     
     Boxes(int x, int y, bool m);
+    void toString();
 };
 
 struct Grid {

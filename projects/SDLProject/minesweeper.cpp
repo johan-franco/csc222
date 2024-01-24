@@ -1,6 +1,7 @@
 #include <algorithm>
 #include "mines.hpp"
 #include <SDL2/SDL.h>
+#include <SDL/SDL_ttf.h>
 #include <cstdlib> 
 #include <time.h> 
 
@@ -65,17 +66,23 @@ int main(int argc, char* argv[])
                     if(a.check_mines() < 40){
                         Boxes p(i, k, m);
                         a.map.push_back(p);
+                        p.toString();
+                        continue;
                     }
                     else{
                         Boxes l(i,k,false);
                         a.map.push_back(l);
+                        l.toString();
+                        continue;
                     }
                 }
             }
             
             // Event loop exit flag
             bool quit = false;
-
+            TTF_Init();
+            TTF_Font *Font = TTF_OpenFont("/Users/994612/classwork/csc222/projects/SDLProject/Open_Sans/OpenSans.ttf", 10);
+            if(Font == NULL) {cout << "Font failed"<< endl;}
             // Event loop
             while(!quit)
             {
@@ -91,10 +98,18 @@ int main(int argc, char* argv[])
                     SDL_GetMouseState(&x, &y);
                     cout << x << " "<< y <<endl;
                     Boxes clicked = a.find_box(x,y);
-                    cout << "You clicked a Box that had range of (" << clicked.xmin << "," << clicked.ymin<< ") to (" << clicked.xmax << "," << clicked.ymax << ")";
-
+                    cout << "You clicked a Box that had range of (" << clicked.xmin << "," << clicked.xmax<< ") to (" << clicked.ymin << "," << clicked.ymax << ")"<<endl;
+                    cout<< "Amount of Mines: "<< a.check_mines()<< endl;
+                    if (clicked.mine == true) {
+                        cout << "You clicked on a mine, you lost.";
+                        quit = true;
+                    }
+                    else{
+                        
+                        continue;
+                    }
                 }
-
+                
 
                 SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
