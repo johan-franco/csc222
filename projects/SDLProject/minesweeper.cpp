@@ -14,6 +14,8 @@ int main(int argc, char* argv[])
     (void) argc;
     (void) argv;
 
+    
+
     // Initialize SDL
     if(SDL_Init(SDL_INIT_VIDEO) < 0)
     {
@@ -86,33 +88,7 @@ int main(int argc, char* argv[])
             //if(Font == NULL) {cout << "Font failed"<< endl;}
             // Event loop
 
-            bool hasMine(Grid& grid, int x, int y) {
-                if (x >= 0 && x < 16 && y >= 0 && y < 16) {
-                    int location = y * 16 + x;
-                    return grid.map[location].mine;
-                }
-                return false;
-            }
-
-// Function to count mines in the surrounding 8 boxes
-int countSurroundingMines(Grid& grid, int x, int y) {
-    int count = 0;
-    for (int i = -1; i <= 1; ++i) {
-        for (int j = -1; j <= 1; ++j) {
-            if (i == 0 && j == 0) continue; 
-            int newX = x + i;
-            int newY = y + j;
-
-            if (newX >= 0 && newX < 16 && newY >= 0 && newY < 16) {
-                int location = newY * 16 + newX;
-                if (grid.map[location].mine) {
-                    ++count;
-                }
-            }
-        }
-    }
-    return count;
-}
+ 
             while(!quit)
             {
                 SDL_Event e;
@@ -135,7 +111,8 @@ int countSurroundingMines(Grid& grid, int x, int y) {
                     }
                     if(location <= 16 || location%16 == 0 || location%16 == 1 || location>= 240){
                         if(location == 1) {
-                            int surroundingMines = countSurroundingMines(a, clicked.x, clicked.y);
+                            int y = location/16;
+                            int surroundingMines = a.countSurroundingMines(location%16, y);
                             cout << "Number of surrounding mines: " << surroundingMines << endl;
                         }
                         continue;

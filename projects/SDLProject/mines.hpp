@@ -20,6 +20,9 @@ struct Boxes {
 struct Grid {
     vector<Boxes> map;
 
+    bool hasMine( int x, int y);
+
     int check_mines();
     int find_box(int x, int y);
+    int countSurroundingMines( int x, int y);
 };

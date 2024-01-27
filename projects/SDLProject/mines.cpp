@@ -36,4 +36,31 @@ int Grid::find_box(int x, int y){
     
 }
 
+bool Grid::hasMine( int x, int y) {
+    if (x >= 0 && x < 16 && y >= 0 && y < 16) {
+        int location = y * 16 + x;
+        return map[location].mine;
+    }
+    return false;
+}
+
+int Grid::countSurroundingMines( int x, int y) {
+    int count = 0;
+    for (int i = -1; i <= 1; ++i) {
+        for (int j = -1; j <= 1; ++j) {
+            if (i == 0 && j == 0) continue; 
+            int newX = x + i;
+            int newY = y + j;
+
+            if (newX >= 0 && newX < 16 && newY >= 0 && newY < 16) {
+                int location = newY * 16 + newX;
+                if (map[location].mine) {
+                    ++count;
+                }
+            }
+        }
+    }
+    return count;
+}
+
 
