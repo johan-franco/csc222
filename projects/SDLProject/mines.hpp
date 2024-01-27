@@ -21,5 +21,5 @@ struct Grid {
     vector<Boxes> map;
 
     int check_mines();
-    Boxes find_box(int x, int y);
+    int find_box(int x, int y);
 };

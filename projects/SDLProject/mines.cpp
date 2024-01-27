@@ -25,13 +25,13 @@ int Grid::check_mines(){
 
 
 
-Boxes Grid::find_box(int x, int y){
+int Grid::find_box(int x, int y){
     Boxes p = map[0];
     for(int i = 0; i < map.size();i++){
         if (map[i].xmin < x && x < map[i].xmax && map[i].ymin < y && y< map[i].ymax) {
            p = map[i];
-           cout << map[i].xmax<< "," << map[i].ymax<< endl; 
+           return i;
         }
     }
-    return p;
+    
 }

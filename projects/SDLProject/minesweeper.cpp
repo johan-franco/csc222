@@ -1,7 +1,7 @@
 #include <algorithm>
 #include "mines.hpp"
 #include <SDL2/SDL.h>
-#include <SDL/SDL_ttf.h>
+//#include "SDL_ttf.h"
 #include <cstdlib> 
 #include <time.h> 
 
@@ -80,9 +80,9 @@ int main(int argc, char* argv[])
             
             // Event loop exit flag
             bool quit = false;
-            TTF_Init();
-            TTF_Font *Font = TTF_OpenFont("/Users/994612/classwork/csc222/projects/SDLProject/Open_Sans/OpenSans.ttf", 10);
-            if(Font == NULL) {cout << "Font failed"<< endl;}
+            //TTF_Init();
+            //TTF_Font *Font = TTF_OpenFont("/Users/994612/classwork/csc222/projects/SDLProject/Open_Sans/OpenSans.ttf", 10);
+            //if(Font == NULL) {cout << "Font failed"<< endl;}
             // Event loop
             while(!quit)
             {
@@ -97,7 +97,7 @@ int main(int argc, char* argv[])
                 if(e.type == SDL_MOUSEBUTTONDOWN) {
                     SDL_GetMouseState(&x, &y);
                     cout << x << " "<< y <<endl;
-                    Boxes clicked = a.find_box(x,y);
+                    Boxes clicked = a.map[a.find_box(x,y)];
                     cout << "You clicked a Box that had range of (" << clicked.xmin << "," << clicked.xmax<< ") to (" << clicked.ymin << "," << clicked.ymax << ")"<<endl;
                     cout<< "Amount of Mines: "<< a.check_mines()<< endl;
                     if (clicked.mine == true) {
