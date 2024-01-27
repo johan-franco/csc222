@@ -57,6 +57,7 @@ int main(int argc, char* argv[])
             squareRect.y = SCREEN_HEIGHT / 2 - squareRect.h / 2;
 
             Grid a;
+            a.map.push_back(Boxes(1000,1000, false));
             int m = 0;
             srand((unsigned) time(NULL));
             for (int i = 0; i < 16; i++) {
@@ -64,13 +65,13 @@ int main(int argc, char* argv[])
                     m = rand()%2;
                     cout << m << endl;
                     if(a.check_mines() < 40){
-                        Boxes p(i, k, m);
+                        Boxes p(k, i, m);
                         a.map.push_back(p);
                         p.toString();
                         continue;
                     }
                     else{
-                        Boxes l(i,k,false);
+                        Boxes l(k,i,false);
                         a.map.push_back(l);
                         l.toString();
                         continue;
@@ -97,16 +98,24 @@ int main(int argc, char* argv[])
                 if(e.type == SDL_MOUSEBUTTONDOWN) {
                     SDL_GetMouseState(&x, &y);
                     cout << x << " "<< y <<endl;
-                    Boxes clicked = a.map[a.find_box(x,y)];
+                    int location = a.find_box(x,y);
+                    Boxes clicked = a.map[location];
                     cout << "You clicked a Box that had range of (" << clicked.xmin << "," << clicked.xmax<< ") to (" << clicked.ymin << "," << clicked.ymax << ")"<<endl;
                     cout<< "Amount of Mines: "<< a.check_mines()<< endl;
                     if (clicked.mine == true) {
                         cout << "You clicked on a mine, you lost.";
-                        quit = true;
+                    }
+                    if(location <= 16 || location%16 == 0 || location%16 == 1 || location>= 240){
+                        if(location == 1) {
+                            
+                        }
+                        continue;
                     }
                     else{
-                        
-                        continue;
+                        if(location <= 16 || location%16 == 0 || location%16 == 1 || location>= 240){
+                            cout << "detected"<<endl;
+                            continue;
+                        }
                     }
                 }
                 
