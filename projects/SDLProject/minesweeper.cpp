@@ -108,20 +108,17 @@ int main(int argc, char* argv[])
                     cout<< "Amount of Mines: "<< a.check_mines()<< endl;
                     if (clicked.mine == true) {
                         cout << "You clicked on a mine, you lost.";
-                    }
-                    if(location <= 16 || location%16 == 0 || location%16 == 1 || location>= 240){
-                        if(location == 1) {
-                            int y = location/16;
-                            int surroundingMines = a.countSurroundingMines(location%16, y);
-                            cout << "Number of surrounding mines: " << surroundingMines << endl;
-                        }
+                        int y = location/16;
+                        int surroundingMines = a.countSurroundingMines(location%16, y);
+                        cout << "Number of surrounding mines: " << surroundingMines << endl;
                         continue;
                     }
+                    
                     else{
-                        if(location <= 16 || location%16 == 0 || location%16 == 1 || location>= 240){
-                            cout << "detected"<<endl;
-                            continue;
-                        }
+                        int y = location/16;
+                        int surroundingMines = a.countSurroundingMines(location%16, y);
+                        cout << "Number of surrounding mines: " << surroundingMines << endl;
+                        continue;
                     }
                 }
                 
